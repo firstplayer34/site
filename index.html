@@ -1,46 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100">
 
 <head>
-    <meta charset="UTF-8">
+    <title>AI Counter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Rubik:400,700&display=swap" rel="stylesheet">
-    <script src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
-    <script src="http://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
-    <title>Document</title>
+    <link href="bootstrap-datetimepicker.css" rel="stylesheet">
+    <style>
+        .jumbotron {
+            background-image: url(img/480568.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
-        <a class="navbar-brand" href="#" style="font-family: 'Roboto', sans-serif;font-weight: 700">AI COUNTER</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type='email' placeholder="E-mail" aria-label="email">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
-                <button class="btn btn-info my-2 my-sm-0" type="submit">Login</button>
-            </form>
-        </div>
-    </nav>
-    <p></p>
-    <div class="container container-fluid text-white d-flex sudtify-content-center align-items-center col-12 col-md-4 mb-4">
-        <div class="container">
-            <form>
+    <div class="jumbotron jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <h1>AI Counter</h1>
+            <h4>Helps you every day... anytime</h4>
+            <div class="p"></div>
+            <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="form-group col-4">
                         <select class="form-control" id="exampleFormControlSelect1">
+                            <option>All zones</option>
                             <option>Zone 1</option>
                             <option>Zone 2</option>
                             <option>Zone 3</option>
@@ -48,88 +55,30 @@
                             <option>Zone 5</option>
                         </select>
                     </div>
-                    <div class="col">
+                    <div class="form-group col-4">
                         <select class="form-control" id="exampleFormControlSelect1">
                             <option>Day</option>
                             <option>Week</option>
-                            <option>Month</option>
+                            <option>Year</option>
                         </select>
                     </div>
-                    <div class="col">
-                        <input type="date" class="form-control" placeholder="Date">
+                    <div class="col-4">
+                        <div class="input-group date">
+                            <input size="16" type="text" value="" class="form_datetime form-control">
+
+                            <script type="text/javascript">
+                                $(".form_datetime").datetimepicker({
+                                    format: 'dd-mm-yyyy '
+                                });
+
+                            </script>
+                        </div>
                     </div>
                 </div>
-            </form>
-            <p></p>
-            <button type="button" class="btn btn-info">Check</button>
+            </div>
+            <!-- график сюда-->
         </div>
     </div>
+</body>
 
-    <br><br><br>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-
-                <!-- График -->
-                <div id="chart"></div>
-
-                <script>
-                    $(function() {
-                        var uri = "//api.worldweatheronline.com/free/v1/weather.ashx?q=Volgograd&format=json&num_of_days=5&key=9fdxuu6gp29zkfwrramg924h";
-                        $.get(uri, function(r) {
-                            if (r.data.error) {
-                                alert(r.data.error[0].msg);
-                            } else {
-                                $("#chart").shieldChart({
-                                    theme: "light",
-                                    primaryHeader: {
-                                        text: 'Температура в Волгограде'
-                                    },
-                                    exportOptions: {
-                                        image: false,
-                                        print: false
-                                    },
-                                    axisY: {
-                                        title: {
-                                            text: "Температура в C"
-                                        }
-                                    },
-                                    axisX: {
-                                        axisType: 'category',
-                                        categoricalValues: ['Завтра', 'Через 2 дня', 'Через 3 дня', 'Через 4 дня', 'Через 5 дней'],
-                                        title: {
-                                            text: "Прогноз температуры на 5 дней в Волгограде"
-                                        }
-                                    },
-                                    dataSeries: [{
-                                        seriesType: 'line',
-                                        collectionAlias: "Максимальная температура (C)",
-                                        data: [
-                                            parseInt(r.data.weather[0].tempMaxC, 10),
-                                            parseInt(r.data.weather[1].tempMaxC, 10),
-                                            parseInt(r.data.weather[2].tempMaxC, 10),
-                                            parseInt(r.data.weather[3].tempMaxC, 10),
-                                            parseInt(r.data.weather[4].tempMaxC, 10)
-                                        ]
-                                    }, {
-                                        seriesType: 'line',
-                                        collectionAlias: "Минимальная температура (C)",
-                                        data: [
-                                            parseInt(r.data.weather[0].tempMinC, 10),
-                                            parseInt(r.data.weather[1].tempMinC, 10),
-                                            parseInt(r.data.weather[2].tempMinC, 10),
-                                            parseInt(r.data.weather[3].tempMinC, 10),
-                                            parseInt(r.data.weather[4].tempMinC, 10)
-                                        ]
-                                    }]
-                                });
-                            }
-                        }, "jsonp");
-                    });
-                </script><!-- /.График -->
-
-            </div><!-- /.col-md-8 col-md-offset-2 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</body></html>
+</html>
