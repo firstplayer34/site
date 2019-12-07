@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <title>AI Counter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="bootstrap-datetimepicker.css" rel="stylesheet">
+    <style>
+        .jumbotron {
+            background-image: url(img/480568.jpg);
+            background-position: top;
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
+            margin-bottom: 0;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+        body{
+            background-position: top;
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <h1>AI Counter</h1>
+            <h4>Helps you every day... anytime</h4>
+            <div class="p"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group col-4">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>All zones</option>
+                            <option>Zone 1</option>
+                            <option>Zone 2</option>
+                            <option>Zone 3</option>
+                            <option>Zone 4</option>
+                            <option>Zone 5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-4">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Day</option>
+                            <option>Week</option>
+                            <option>Year</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group date">
+                            <input size="16" type="text" value="" class="form_datetime form-control">
+
+                            <script type="text/javascript">
+                                $(".form_datetime").datetimepicker({
+                                    format: 'dd-mm-yyyy '
+                                });
+
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- график сюда-->
+        </div>
+    </div>
+</body>
+
+</html>
